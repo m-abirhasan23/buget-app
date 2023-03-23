@@ -1,16 +1,16 @@
 import { ArrowUturnLeftIcon, HomeIcon } from '@heroicons/react/24/solid';
 import React from 'react';
-import { Link, useRouteError } from 'react-router-dom';
+import { Link, useNavigate, useRouteError } from 'react-router-dom';
 
 const Error = () => {
     const error=useRouteError()
-    console.log(error);
+    const navigate = useNavigate()
   return (
     <div className='error'>
         <h1>uh oh We got a problem</h1>
         <p>{error.message|| error.statusText}</p>
         <div className="flex-md">
-            <button className='btn btn--dark'>
+            <button className='btn btn--dark' onClick={() => navigate(-1)}>
                 <ArrowUturnLeftIcon width={20}/>
                 <span>Go Back</span>
             </button>
